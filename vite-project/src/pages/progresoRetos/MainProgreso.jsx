@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './mainProgreso.css'
 
 const MainProgreso = ({ data }) => {
   const [dataRetos, setDataRetos] = useState(null);
@@ -29,14 +30,14 @@ const MainProgreso = ({ data }) => {
 
   return (
     <>
-      <ul>
+      <ul className='ul-container'>
         {dataRetos &&
           dataRetos.map((reto, index) => (
-            <li key={index}>
-              <div>{reto.id}</div>
-              <div>{reto.empresa.nombre}</div>
-              <div>{reto.estado ? 'activo':'inactivo'}</div>
-              <div><button  onClick={()=>handleButton(reto.id)}>Descargar Solucion</button></div>
+            <li key={index} className='ul-container__li'>
+              <div className='item-li'>{reto.id}</div>
+              <div className='item-li'>{reto.empresa.nombre}</div>
+              <div className='item-li'>{reto.estado ? 'activo':'inactivo'}</div>
+              <div className='item-button'><button  onClick={()=>handleButton(reto.id)}>Descargar Solucion</button></div>
               </li>
           ))}
       </ul>
